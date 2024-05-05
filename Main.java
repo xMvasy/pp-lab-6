@@ -42,7 +42,7 @@ public class Main {
             idMap.computeIfAbsent(emp.getId(), k -> new ArrayList<>()).add(emp);
         }
 
-        System.out.println("Duplicates found:");
+        System.out.println("Duplicate ID found:");
         for (Map.Entry<Integer, List<Employee>> entry : idMap.entrySet()) {
             if (entry.getValue().size() > 1) {
                 System.out.print("Duplicate ID " + entry.getKey() + " found in: ");
