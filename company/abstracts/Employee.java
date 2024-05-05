@@ -25,6 +25,10 @@ public abstract class Employee implements Employable {
         return salary;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getHireDate() {
         return hireDate;
     }
@@ -33,22 +37,22 @@ public abstract class Employee implements Employable {
         return position;
     }
 
+    @Override
     public int hashCode() {
         return id;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        Employee other = (Employee) obj;
-        return id == other.id;
-    }
-
-    @Override
-    public abstract void work();
+public boolean equals(Object obj) {
+    if (this == obj) return true;
+    if (obj == null || getClass() != obj.getClass()) return false;
+    Employee other = (Employee) obj;
+    return id == other.id &&
+           name.equals(other.name) &&
+           Double.compare(salary, other.salary) == 0 &&
+           hireDate.equals(other.hireDate) &&
+           position.equals(other.position);
+}
+@Override
+public abstract void work();
 }
